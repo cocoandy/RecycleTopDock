@@ -79,21 +79,21 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(BaseRecycleAdapter.ViewHolder holder, int position) {
 //                mDatas.add(new DataInfo(
 //                        "2017年6月12日", "Soly" , "women" , "good" ));
-                mDatas.remove(6);
-                mAdapter.notifyItemRemoved(6);
+                mDatas.remove(position);
+                mAdapter.notifyMItemRemoved(position);//使用Adapter的notifyMItemRemoved方法
             }
 
             @Override
             public void onHeadClick(BaseRecycleAdapter.ViewHolder holder, int position) {
                 mDatas.get(0).setName("Zhang san");
-                mAdapter.notifyItemChanged(mAdapter.getPosition(0));
+                mAdapter.notifyMItemChanged(0);
             }
 
             @Override
             public void onFootClick(BaseRecycleAdapter.ViewHolder holder, int position) {
                 mDatas.add(new DataInfo(
                         "2017年6月12日", "Soly", "women", "good"));
-                mAdapter.notifyItemInserted(mAdapter.getPosition(mDatas.size()-1));
+                mAdapter.notifyMItemInserted(mDatas.size()-1);
             }
         });
 
